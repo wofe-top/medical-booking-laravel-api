@@ -1,6 +1,6 @@
-# pulseBook-api
+# Medical Booking Laravel API
 
-A modern, highly optimized, and robust RESTful API built with Laravel, designed to serve as the backend enterprise architecture for the **pulseBook Medical Clinic & Appointment Booking Platform**. This project showcases advanced backend programming standards, strict separation of concerns, and clean code practices tailored for highly scalable, production-ready environments.
+A modern, secure, and scalable RESTful API built with Laravel for managing medical appointments, doctor profiles, schedules, and patient workflows. This project serves as the backend for a medical booking platform and reflects strong backend engineering practices, clean architecture, and production-ready design.
 
 ## 🚀 Key Architectural Features & Patterns
 
@@ -60,8 +60,8 @@ To demonstrate professional backend proficiency and maintainability, this API co
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/wofe-top/pulseBook-api.git](https://github.com/wofe-top/pulseBook-api.git)
-   cd pulseBook-api
+   git clone https://github.com/wofe-top/medical-booking-laravel-api.git
+   cd medical-booking-laravel-api
 
 2. Install dependencies:
     ```bash
