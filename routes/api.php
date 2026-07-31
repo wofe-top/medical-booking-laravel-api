@@ -18,6 +18,7 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     // Auth & Test
     Route::get('/me', [AuthController::class, 'me']);
+    Route::get('/user', [AuthController::class, 'user']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
     // Doctor
     Route::get('/doctor', [DoctorController::class, 'index']);

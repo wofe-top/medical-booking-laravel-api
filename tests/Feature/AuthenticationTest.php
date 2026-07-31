@@ -126,4 +126,23 @@ class AuthenticationTest extends TestCase
             "user" => ["id", "name", "email", "email_verified_at", "role", "phone", "updated_at", "created_at"]
         ]);
     }
+
+    public function test_authenticated_user_can_fetch_their_profile_via_user_endpoint(): void
+    {
+        $user = User::create([
+            'name'     => 'Jane Doe',
+            'email'    => 'jane@example.org',
+            'password' => Hash::make('password'),
+            'role'     => 'patient',
+        ]);
+
+        $response = $this->actingAs($user, 'sanctum')->getJson('/api/user');
+
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            'message',
+            'user' => ['id', 'name', 'email', 'role', 'created_at', 'updated_at']
+        ]);
+        $response->assertJsonPath('user.id', $user->id);
+    }
 }
