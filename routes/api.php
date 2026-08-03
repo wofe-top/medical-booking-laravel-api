@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('auth/logout', [AuthController::class, 'logout']);
     // Doctor
+    Route::post('/doctors', [DoctorController::class, 'store']);
+    Route::get('/doctors', [DoctorController::class, 'index']);
     Route::get('/doctor', [DoctorController::class, 'index']);
     Route::get('/doctors/{doctorProfile}/available-slots', [DoctorController::class, 'getAvailableSlots']);
 
