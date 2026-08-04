@@ -19,10 +19,11 @@ class AppointmentService
 
     public function __construct(protected NotificationServiceInterface $notificationService) {}
 
-    public function index($filters)
+    public function index($filters, int $perPage = 10)
     {
-
-        $appointments =  Appointment::with(['patient', 'doctorProfile'])->filter($filters)->paginate(10);
+        $appointments = Appointment::with(['patient', 'doctorProfile.user'])
+            ->filter($filters)
+            ->paginate($perPage);
 
         return $appointments;
     }

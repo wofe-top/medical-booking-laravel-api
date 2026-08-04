@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\DashboardController;
 
 
 // Roues Auth Public
@@ -25,6 +27,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctors', [DoctorController::class, 'index']);
     Route::get('/doctor', [DoctorController::class, 'index']);
     Route::get('/doctors/{doctorProfile}/available-slots', [DoctorController::class, 'getAvailableSlots']);
+
+    // Patients
+    Route::get('/users', [UserController::class, 'index']);
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
     // Appointments
     Route::get('/appointments', [AppointmentController::class, 'index']);

@@ -29,9 +29,12 @@ class AppointmentController extends Controller
      *
      * @authenticated
      */
-    public function index(AppointmentFilter  $filters)
+    public function index(Request $request, AppointmentFilter $filters)
     {
-        $appointments = $this->appointmentService->index($filters);
+        $perPage = $request->integer('per_page', 10);
+        $perPage = $perPage > 0 ? min($perPage, 100) : 10;
+
+        $appointments = $this->appointmentService->index($filters, $perPage);
 
         return AppointmentResource::collection($appointments)->additional([
             'message' => 'Appointments Fetched Successfully'
